@@ -12,8 +12,8 @@ pool:
 steps:
 
 - script: |
-    python -m pip install flake8
-    flake8 .
+    python -m pip install pylint
+    pylint
   displayName: 'Run lint tests'
   
 - script: |
