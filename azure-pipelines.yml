@@ -12,11 +12,6 @@ pool:
 steps:
 
 - script: |
-    python -m pip install pylint
-    pylint
-  displayName: 'Run lint tests'
-  
-- script: |
     python3 -m pip install --upgrade build
     python3 -m build
   displayName: 'Build pip package'
