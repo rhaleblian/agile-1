@@ -4,14 +4,23 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
-
-pool:
-  vmImage: ubuntu-latest
+- azure-pipelines
 
 steps:
 
-- script: |
-    python3 -m pip install --upgrade build
-    python3 -m build
-  displayName: 'Build pip package'
+- stage: deploy
+  jobs:
+  - deployment: DeployWeb
+    displayName: deploy Web App
+    pool:
+      vmImage: 'Ubuntu-latest'
+    # creates an environment if it doesn't exist
+    environment: 
+      name: 'staging'
+      resourceName: myVM
+      resourceType: virtualMachine
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo Hello world
