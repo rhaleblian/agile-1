@@ -6,8 +6,7 @@
 trigger:
 - azure-pipelines
 
-steps:
-
+stages:
 - stage: deploy
   jobs:
   - deployment: DeployWeb
