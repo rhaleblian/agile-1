@@ -1,3 +1,3 @@
-# collaboration-1
+# agile-1
 
-Use this with Azure project special-assignment .
+Use this with Azure project "agile-1" .
