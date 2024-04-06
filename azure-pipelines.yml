@@ -14,13 +14,18 @@ steps:
   inputs:
     versionSpec: '3.9'
   displayName: 'Use Python $(python.version)'
-
 - script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
   displayName: 'Install dependencies'
-
 - script: |
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+- task: AzureFileCopy@6
+  inputs:
+    SourcePath: '/dist'
+    azureSubscription: 'Azure subscription 1 (b6fb1edc-31c1-47b1-b828-c0ba6cd3b6bd)'
+    Destination: 'AzureBlob'
+    storage: 'cs21003200111556c27'
+    ContainerName: 'agile-1'
